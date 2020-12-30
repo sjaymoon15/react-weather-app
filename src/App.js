@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import store from './utils/configureStore';
+import Main from './containers/Main';
 
-const App = () => {
-  return <div>Initial app</div>;
-};
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Main />
+      </Provider>
+    );
+  }
+}
 
 export default App;

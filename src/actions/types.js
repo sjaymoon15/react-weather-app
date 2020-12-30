@@ -1,0 +1,1 @@
+export const FETCH_WEATHERS = 'FETCH_WEATHERS';
