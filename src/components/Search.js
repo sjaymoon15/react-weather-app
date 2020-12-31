@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { fetchWeathers } from '../actions';
 import searchStyles from '../styles/searchStyles.module.css';
 
-class Search extends Component {
+export default class Search extends Component {
   constructor(props) {
     super(props);
 
@@ -18,7 +16,6 @@ class Search extends Component {
   };
 
   handleFormSubmit = () => {
-    console.log(this.state.searchQuery);
     this.props.fetchWeathers(this.state.searchQuery);
     this.setState({ searchQuery: '' });
   };
@@ -30,7 +27,7 @@ class Search extends Component {
           <Form.Input
             fluid
             action='Search'
-            placeholder='Enter City'
+            placeholder='Enter City or Zipcode'
             value={this.state.searchQuery}
             onChange={this.handleInputChange}
           />
@@ -39,5 +36,3 @@ class Search extends Component {
     );
   }
 }
-
-export default connect(null, { fetchWeathers })(Search);
