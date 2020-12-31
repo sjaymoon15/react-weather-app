@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchWeathers } from '../actions';
+import { Container } from 'semantic-ui-react';
+
+import Search from './Search';
 
 class Main extends Component {
-  componentDidMount() {
-    this.props.fetchWeathers('dallas');
-  }
-
   render() {
-    return <div>Main</div>;
+    return (
+      <Container>
+        <Search />
+      </Container>
+    );
   }
 }
 
@@ -19,4 +21,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchWeathers })(Main);
+export default connect(mapStateToProps)(Main);
