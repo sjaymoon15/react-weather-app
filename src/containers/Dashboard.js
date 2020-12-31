@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Grid, Segment, Divider } from 'semantic-ui-react';
+import { Container, Segment } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 import Search from '../components/Search';
@@ -7,7 +7,7 @@ import Weather from '../components/Weather';
 import CityInfo from '../components/CityInfo';
 import { fetchWeathers } from '../actions';
 
-class Main extends Component {
+class Dashboard extends Component {
   render() {
     const { fetchWeathers, weathers } = this.props;
     return (
@@ -22,10 +22,10 @@ class Main extends Component {
   }
 }
 
-const mapStateToProps = ({ weathers }) => {
+const mapStateToProps = (state) => {
   return {
-    weathers,
+    weathers: state.weathers,
   };
 };
 
-export default connect(mapStateToProps, { fetchWeathers })(Main);
+export default connect(mapStateToProps, { fetchWeathers })(Dashboard);
