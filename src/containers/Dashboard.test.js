@@ -5,7 +5,7 @@ import { findByTestAttr } from '../utils/testUtils';
 import { UnconnectedDashboard } from './Dashboard';
 import { weatherResponseMock } from '../utils/testMocks';
 
-describe('AppEditor', () => {
+describe('Dashboard', () => {
   let wrapper;
   const fetchWeathersMock = jest.fn();
   let propsMock;
