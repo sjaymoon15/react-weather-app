@@ -22,7 +22,10 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div className={searchStyles.searchContainer}>
+      <div
+        data-test='component-search'
+        className={searchStyles.searchContainer}
+      >
         <Form onSubmit={this.handleFormSubmit}>
           <Form.Input
             fluid
