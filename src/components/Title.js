@@ -1,20 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Header, Message } from 'semantic-ui-react';
 
-export default class Title extends Component {
-  render() {
-    const { city, error } = this.props;
-    if (error) {
-      return (
-        <Message negative>
-          <Message.Header>{error}</Message.Header>
-        </Message>
-      );
-    } else {
-      const header = city
-        ? `Weather Information for ${city.name}, ${city.country}`
-        : 'Another Weather App';
-      return <Header as='h2' content={header} textAlign='center' />;
-    }
+const Title = ({ city, error }) => {
+  if (error) {
+    return (
+      <Message data-test='component-title-error' negative>
+        <Message.Header data-test='component-title-error-message'>
+          {error}
+        </Message.Header>
+      </Message>
+    );
+  } else {
+    const header = city
+      ? `Weather Information for ${city.name}, ${city.country}`
+      : 'Another Weather App';
+    return (
+      <Header
+        data-test='component-title'
+        as='h2'
+        content={header}
+        textAlign='center'
+      />
+    );
   }
-}
+};
+
+export default Title;

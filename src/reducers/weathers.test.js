@@ -1,6 +1,6 @@
 import reducer, { defaultState } from './weathers';
 import { FETCH_WEATHERS, FETCH_WEATHERS_ERROR } from '../actions/types';
-import { mockWeatherResponse, searchQueryMock } from '../utils/testMocks';
+import { weatherResponseMock, searchQueryMock } from '../utils/testMocks';
 import { FETCH_WEATHERS_ERROR_MESSAGE } from '../utils/constants';
 
 describe('weathers reducer', () => {
@@ -12,12 +12,12 @@ describe('weathers reducer', () => {
     expect(
       reducer(defaultState, {
         type: FETCH_WEATHERS,
-        payload: mockWeatherResponse,
+        payload: weatherResponseMock,
       })
     ).toEqual({
       ...defaultState,
-      city: mockWeatherResponse.city,
-      list: mockWeatherResponse.list,
+      city: weatherResponseMock.city,
+      list: weatherResponseMock.list,
     });
   });
 

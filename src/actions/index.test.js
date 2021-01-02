@@ -3,7 +3,7 @@ import moxios from 'moxios';
 import * as actions from './index';
 import * as types from './types';
 import { mockStore } from '../utils/testUtils';
-import { mockWeatherResponse, searchQueryMock } from '../utils/testMocks';
+import { weatherResponseMock, searchQueryMock } from '../utils/testMocks';
 import { defaultState } from '../reducers/weathers';
 import { FETCH_WEATHERS_ERROR_MESSAGE } from '../utils/constants';
 
@@ -26,7 +26,7 @@ describe('action creators', () => {
         const expectedActions = [
           {
             type: types.FETCH_WEATHERS,
-            payload: mockWeatherResponse,
+            payload: weatherResponseMock,
           },
         ];
 
@@ -34,7 +34,7 @@ describe('action creators', () => {
           const request = moxios.requests.mostRecent();
           request.respondWith({
             status: 200,
-            response: mockWeatherResponse,
+            response: weatherResponseMock,
           });
         });
 

@@ -1,5 +1,5 @@
 export const searchQueryMock = 'Charleston';
-export const mockWeatherResponse = {
+export const weatherResponseMock = {
   list: [
     {
       dt: 1609621200,
