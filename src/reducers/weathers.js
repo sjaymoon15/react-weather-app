@@ -1,6 +1,6 @@
 import { FETCH_WEATHERS, FETCH_WEATHERS_ERROR } from '../actions/types';
 
-const defaultState = {
+export const defaultState = {
   city: null,
   list: null,
   error: null,

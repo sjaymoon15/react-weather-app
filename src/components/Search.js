@@ -26,7 +26,10 @@ export default class Search extends Component {
         <Form onSubmit={this.handleFormSubmit}>
           <Form.Input
             fluid
-            action='Search'
+            action={{
+              color: 'teal',
+              content: 'Search',
+            }}
             placeholder='Enter City or Zipcode'
             value={this.state.searchQuery}
             onChange={this.handleInputChange}
