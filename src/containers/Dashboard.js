@@ -7,15 +7,25 @@ import Weather from '../components/Weather';
 import Title from '../components/Title';
 import { fetchWeathers } from '../actions';
 
-class Dashboard extends Component {
+export class UnconnectedDashboard extends Component {
   render() {
     const { fetchWeathers, weathers } = this.props;
     return (
-      <Container>
-        <Search fetchWeathers={fetchWeathers} />
+      <Container data-test='container-dashboard'>
+        <Search
+          data-test='container-dashboard-search'
+          fetchWeathers={fetchWeathers}
+        />
         <Segment>
-          <Title city={weathers.city} error={weathers.error} />
-          <Weather list={weathers.list} />
+          <Title
+            data-test='container-dashboard-title'
+            city={weathers.city}
+            error={weathers.error}
+          />
+          <Weather
+            data-test='container-dashboard-weather'
+            list={weathers.list}
+          />
         </Segment>
       </Container>
     );
@@ -28,4 +38,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchWeathers })(Dashboard);
+const Dashboard = connect(mapStateToProps, { fetchWeathers })(
+  UnconnectedDashboard
+);
+
+export default Dashboard;
