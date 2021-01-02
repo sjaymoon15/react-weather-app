@@ -10,6 +10,12 @@ import {
   Legend,
 } from 'recharts';
 
+import {
+  LINE_COLOR_HUMIDITY,
+  LINE_COLOR_PRESSURE,
+  LINE_COLOR_TEMP,
+} from '../utils/constants';
+
 export default class Weather extends Component {
   render() {
     const { list } = this.props;
@@ -23,11 +29,19 @@ export default class Weather extends Component {
           <Legend />
           <Line
             dataKey='main.pressure'
-            stroke='#8f2d56'
+            stroke={LINE_COLOR_PRESSURE}
             name='Pressure (hPa)'
           />
-          <Line dataKey='main.humidity' stroke='#d81159' name='Humidity (%)' />
-          <Line dataKey='main.temp' stroke='#006ba6' name='Temperature (F)' />
+          <Line
+            dataKey='main.humidity'
+            stroke={LINE_COLOR_HUMIDITY}
+            name='Humidity (%)'
+          />
+          <Line
+            dataKey='main.temp'
+            stroke={LINE_COLOR_TEMP}
+            name='Temperature (F)'
+          />
         </LineChart>
       </ResponsiveContainer>
     );

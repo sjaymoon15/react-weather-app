@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Search from '../components/Search';
 import Weather from '../components/Weather';
-import CityInfo from '../components/CityInfo';
+import Title from '../components/Title';
 import { fetchWeathers } from '../actions';
 
 class Dashboard extends Component {
@@ -14,7 +14,7 @@ class Dashboard extends Component {
       <Container>
         <Search fetchWeathers={fetchWeathers} />
         <Segment>
-          <CityInfo city={weathers.city} />
+          <Title city={weathers.city} error={weathers.error} />
           <Weather list={weathers.list} />
         </Segment>
       </Container>
