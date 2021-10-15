@@ -1,12 +1,13 @@
-import moxios from 'moxios';
+import moxios from "moxios"
 
-import * as actions from './index';
-import * as types from './types';
-import { mockStore } from '../utils/testUtils';
-import { weatherResponseMock, searchQueryMock } from '../utils/testMocks';
-import { defaultState } from '../reducers/weathers';
-import { FETCH_WEATHERS_ERROR_MESSAGE } from '../utils/constants';
+import * as actions from "./index"
+import * as types from "./types"
+import { mockStore } from "../utils/testUtils"
+import { weatherResponseMock, searchQueryMock } from "../utils/testMocks"
+import { defaultState } from "../reducers/weathers"
+import { FETCH_WEATHERS_ERROR_MESSAGE } from "../utils/constants"
 
+import * as index from "./index"
 describe('action creators', () => {
   beforeEach(() => {
     moxios.install();
@@ -95,3 +96,54 @@ describe('action creators', () => {
     });
   });
 });
+
+// @ponicode
+describe("index.fetchWeathers", () => {
+    test("0", () => {
+        let callFunction = () => {
+            index.fetchWeathers("UPDATE Projects SET pname = %s WHERE pid = %s")
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("1", () => {
+        let callFunction = () => {
+            index.fetchWeathers("DROP TABLE tmp;")
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("2", () => {
+        let callFunction = () => {
+            index.fetchWeathers("SELECT * FROM Movies WHERE Title=’Jurassic Park’ AND Director='Steven Spielberg';")
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("3", () => {
+        let callFunction = () => {
+            index.fetchWeathers("DELETE FROM Projects WHERE pid = %s")
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("4", () => {
+        let callFunction = () => {
+            index.fetchWeathers("UNLOCK TABLES;")
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("5", () => {
+        let callFunction = () => {
+            index.fetchWeathers(undefined)
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+})
